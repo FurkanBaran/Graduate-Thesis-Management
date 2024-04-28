@@ -1,7 +1,8 @@
 # Thesis Management System
 
 This is a Flask web application for managing theses. It was developed as a request project with special requirements and completed in 3-4 days. The application includes all the requested features and meets all the specified requirements.
-
+live demo: https://gts-test.vercel.app/
+(Vercel demo uses ElephantSQL which is shutting down in 2025. So demo app will crash after that time.)
 ## Features
 
 - Index Page: Displays the main page of the application.
