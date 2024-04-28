@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQL Query Response</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .fail {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if not error %}
+            <div class="success">
+                <h2>Successful</h2>
+                <p>Your SQL query executed successfully.</p>
+                <p>{{response}}</p>
+                <p>You will be redirected to the home page in <span id="counter">3</span> second(s).</p>
+                <p><a href="/">Click here</a> to go back to the home page now.</p>
+            </div>
+        {% else %}
+            <div class="fail">
+                <h2> Failed</h2>
+                <p>There was an error executing your SQL query.</p>
+                <p>{{response}}</p>
+                <p>You will be redirected to the home page in <span id="counter">5</span> second(s).</p>
+                <p><a href="/">Click here</a> to go back to the home page now.</p>
+
+            </div>
+        {% endif %}
+    </div>
+
+    <script type="text/javascript">
+        function countdown() {
+            var i = document.getElementById('counter');
+            if (parseInt(i.innerHTML) <= 0) {
+                location.href = '/';
+                return;
+            }
+            i.innerHTML = parseInt(i.innerHTML) - 1;
+        }
+        setInterval(function () {
+            countdown();
+        }, 1000);
+    </script>
+</body>
+</html>
