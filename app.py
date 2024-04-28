@@ -6,7 +6,7 @@ conn = psycopg2.connect(
     host="host",
     database="database",
     user="user",
-    password="Epassword"
+    password="password"
 )
 # get a cursor from the database connection
 conn.autocommit = True
