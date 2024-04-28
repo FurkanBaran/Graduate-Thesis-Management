@@ -5,25 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GTS</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
-    <style>
-        /* Custom styles for the form */
-        h1, h2, h3 {
-            padding:30px 0px;
-        }
-        .form-label {
-            font-weight: bold;
-        }
-        .form-control {
-            margin-bottom: 10px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-submit {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}"> 
 </head>
 <body>
             <!-- Navigation bar -->
@@ -163,48 +145,10 @@
 
     <!-- Script for changing institute options according to university selection -->
     <script>
-        $(document).ready(function() {
-            $("#uni1").change(function() {
-                var uni_id = $(this).val();
-                institute_list = {{ ins_list|tojson }};
-                var options = '';
-                for (var i = 0; i < institute_list.length; i++) {
-                    if (institute_list[i][2] == uni_id) {
-                        options += '<option value="' + institute_list[i][0] + '">' + institute_list[i][1] + '</option>';
-                    }
-                }
-                $("#ins").html(options);
-            });
-        });
+        institute_list = {{ ins_list|tojson }};
     </script>
-    <script>
-        function searchThesisByNumber() {
-            // Get the thesis number from the input
-            var thesisNumber = document.getElementById('thesis_no').value;
-            
-            // Redirect to the thesis detail page with the given thesis number
-            window.location.href = '/get_thesis/' + thesisNumber;
-        }
-    </script>
+    <script src="{{url_for('static', filename='js/main.js') }}"></script>
 
-    
-    <script>
-        // Script for adding empty option to the beginning of the select options
-        $(document).ready(function() {   
-            $("#author").prepend("<option value='' >&nbsp;</option>");
-            $("#supervisors").prepend("<option value='' >&nbsp;</option>");
-            $("#cosupervisors").prepend("<option value='' >&nbsp;</option>");
-            $("#topic").prepend("<option value='' >&nbsp;</option>");
-            $("#keywords").prepend("<option value='' >&nbsp;</option>");
-            $("#uni1").prepend("<option value='' >&nbsp;</option>");
-            $("#ins").prepend("<option value='' >&nbsp;</option>");
-            $("#type").prepend("<option value='' >&nbsp;</option>");
-            $("#language").prepend("<option value='' >&nbsp;</option>");
 
-            $(".chosen-select").chosen({
-               no_results_text: "Oops, nothing found!"
-             })
-           });
-    </script>
 </body>
 </html>
