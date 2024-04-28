@@ -1,6 +1,10 @@
 # Graduate Thesis System (GTS)
 
-The Graduate Thesis System (GTS) is a comprehensive database application developed to manage graduate theses effectively. This project was rapidly developed over a few days upon request and utilizes PostgreSQL for backend data management. The application provides a user-friendly web interface for interacting with the database, facilitating efficient data entry, querying, and administration of graduate thesis records.
+The Graduate Thesis System (GTS) is a lightweight, rapidly developed database application tailored to effectively manage graduate theses. This project was crafted over a few days upon specific request, utilizing PostgreSQL for backend data management integrated with a Python Flask web application, enhanced with JavaScript and Bootstrap for frontend interactions.
+
+Despite the quick development timeline, the system robustly adheres to detailed database constraints and requirements, ensuring data integrity and compliance with the specified schema rules. The GTS is equipped with numerous functions designed for adding, editing, and deleting records, all while maintaining a user-friendly interface that simplifies database interaction, facilitating efficient data entry, querying, and administration of graduate thesis records.
+
+The application ensures that all interactions are in strict adherence to the database's integrity rules and constraints. Each function is carefully implemented to enforce data consistency and reliability. In instances where user actions might violate these predefined rules, the system provides clear and informative error messages, guiding users to resolve any potential issues effectively. This approach not only enhances the system's usability but also ensures the integrity and accuracy of the data maintained.
 
 live demo: https://gts-test.vercel.app/
 (Vercel demo uses ElephantSQL which is shutting down in 2025. So demo app will crash after that time.)
@@ -41,6 +45,17 @@ To set up the GTS, follow these steps:
 psql -U username -d database_name -f pg-database.sql
 Usage
 Don't forget to update database credentials. Run the application through your preferred web server or localhost setup. Access the system via the web interface to manage thesis records.
+## Screenshots
+![image](https://github.com/FurkanBaran/Graduate-Thesis-Management/assets/21145014/f2fc345d-05e2-4fb7-85c2-6ad9cbdb65c0)
+![image](https://github.com/FurkanBaran/Graduate-Thesis-Management/assets/21145014/c28b0b00-cc19-43be-b86c-29b691be0abe)
+![image](https://github.com/FurkanBaran/Graduate-Thesis-Management/assets/21145014/8f5c1d65-0f59-46b0-be3f-da7d6349d8da)
+![image](https://github.com/FurkanBaran/Graduate-Thesis-Management/assets/21145014/331c4413-1903-43c5-b640-70eda73e7796)
+![image](https://github.com/FurkanBaran/Graduate-Thesis-Management/assets/21145014/db727ba5-9969-4065-a495-c6008fa242ea)
+![image](https://github.com/FurkanBaran/Graduate-Thesis-Management/assets/21145014/c3b57903-4ac7-4480-ac3f-04fb1f4296de)
+![image](https://github.com/FurkanBaran/Graduate-Thesis-Management/assets/21145014/f1b5a4a0-87d9-46d9-b609-94a6a18c6d68)
+![image](https://github.com/FurkanBaran/Graduate-Thesis-Management/assets/21145014/53aab4f1-f0a4-41f9-931f-df76c705beca)
+
+
 
 Contributing
 Contributions to the GTS are welcome. Please fork the repository and submit pull requests with your proposed changes.
