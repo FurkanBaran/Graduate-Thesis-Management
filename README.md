@@ -2,7 +2,7 @@
     # Thesis Management System
 
     This is a Flask web application for managing theses. It was developed as a request project with special requirements and completed in 3-4 days. The application includes all the requested features and meets all the specified requirements.
-
+ 
     ## Features
 
     - Index Page: Displays the main page of the application.
