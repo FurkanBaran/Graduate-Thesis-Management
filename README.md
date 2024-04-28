@@ -1,38 +1,55 @@
-# Thesis Management System
+# Graduate Thesis System (GTS)
 
-This is a Flask web application for managing theses. It was developed as a request project with special requirements and completed in 3-4 days. The application includes all the requested features and meets all the specified requirements.
+The Graduate Thesis System (GTS) is a comprehensive database application developed to manage graduate theses effectively. This project was rapidly developed over a few days upon request and utilizes PostgreSQL for backend data management. The application provides a user-friendly web interface for interacting with the database, facilitating efficient data entry, querying, and administration of graduate thesis records.
 
 live demo: https://gts-test.vercel.app/
 (Vercel demo uses ElephantSQL which is shutting down in 2025. So demo app will crash after that time.)
+
+
 ## Features
 
-- Index Page: Displays the main page of the application.
-- Add Data Page: Allows users to add data to the system.
-- Add Person: Handles the addition of a new person to the system.
-- Add University: Handles the addition of a new university to the system.
-- Add Institute: Handles the addition of a new institute to the system.
-- Add Topic: Handles the addition of a new topic to the system.
-- Add Thesis: Handles the addition of a new thesis to the system.
-- Search Page: Allows users to search for theses based on various criteria.
-- Search Thesis: Retrieves the search results based on the user's input.
-- Get Thesis Details: Displays the details of a specific thesis.
-- Edit Page: Allows users to edit existing data in the system.
-- Edit Person: Handles the editing of a person's details.
-- Edit Topic: Handles the editing of a topic's details.
-- Edit University: Handles the editing of a university's details.
-- Edit Institute: Handles the editing of an institute's details.
-- Delete Person: Handles the deletion of a person from the system.
-- Delete Topic: Handles the deletion of a topic from the system.
-- Delete University: Handles the deletion of a university from the system.
-- Delete Institute: Handles the deletion of an institute from the system.
+- **Index Page**: Displays the main page of the application, serving as the entry point for users.
+- **Add Data Page**: Allows users to add various types of data to the system, streamlining the process of populating the database.
+- **Add Person**: Manages the addition of new people to the system, including students, faculty, or researchers.
+- **Add University**: Facilitates the creation of new university entries in the database.
+- **Add Institute**: Enables users to add new institutes associated with universities.
+- **Add Topic**: Allows for the addition of new subject topics to categorize the theses.
+- **Add Thesis**: Manages the addition of new theses, linking them to authors, topics, and other relevant details.
+- **Search Page**: Provides a search interface for users to find theses based on various criteria such as title, author, year, etc.
+- **Search Thesis**: Retrieves and displays search results based on user input.
+- **Get Thesis Details**: Shows detailed information for a specific thesis, including abstract, author, year, and status.
+- **Edit Page**: Offers functionalities to edit existing records in the database.
+- **Edit Person**: Allows for modifications to person details.
+- **Edit Topic**: Enables editing details of existing topics.
+- **Edit University**: Manages the updating of university details.
+- **Edit Institute**: Facilitates the editing of institute details.
+- **Delete Person**: Handles the removal of a person from the system.
+- **Delete Topic**: Allows for the deletion of topics from the system.
+- **Delete University**: Manages the deletion of university records.
+- **Delete Institute**: Handles the removal of institute records.
 
-## Usage
+## Installation
+
+To set up the GTS, follow these steps:
 
 1. Install the required dependencies by running `pip install -r requirements.txt`.
-2. Set up the PostgreSQL database connection by modifying the `conn` variable in the code.
-3. Run the application by executing `python app.py`.
-4. Access the application in your web browser at `http://localhost:5000`.
+2. Import the provided SQL file into your PostgreSQL database to create and populate the database schema.
+3. Set up the PostgreSQL database connection by modifying the `conn` variable in the code.
+4. Run the application by executing `python app.py`.
+5. Access the application in your web browser at `http://localhost:5000`.
+
+psql -U username -d database_name -f pg-database.sql
+Usage
+Don't forget to update database credentials. Run the application through your preferred web server or localhost setup. Access the system via the web interface to manage thesis records.
+
+Contributing
+Contributions to the GTS are welcome. Please fork the repository and submit pull requests with your proposed changes.
+
+License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+
 
 ## Note
 
 Please note that this application is a basic implementation and may require further enhancements and security measures before being used in a production environment.
+
