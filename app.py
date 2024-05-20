@@ -260,6 +260,7 @@ def search_thesis():
 @app.route('/get_thesis/<string:id>', methods=['GET'])
 def get_thesis(id):
     try:
+        # Thesis details query
         cur.execute('''SELECT 
         Theses.thesis_no,
         Persons.title || ' ' || Persons.name AS author_name,
@@ -298,6 +299,7 @@ def get_thesis(id):
         
         thesis_details_dict = dict(zip([desc[0] for desc in cur.description], thesis_details[0]))
 
+        # Keywords query
         cur.execute('''SELECT 
                 Keywords.keyword
             FROM 
@@ -308,6 +310,7 @@ def get_thesis(id):
                 ThesisKeywords.thesis_no = %s;''', (id,))
         keywords = [item[0] for item in cur.fetchall()]
 
+        # Topics query
         cur.execute('''SELECT 
                 SubjectTopics.topic_name
             FROM 
@@ -324,7 +327,6 @@ def get_thesis(id):
     except Exception as e:
         return render_template('result.html', response=str(e), error=True)
 
-    
 
 
 
