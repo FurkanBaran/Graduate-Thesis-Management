@@ -101,7 +101,7 @@ def add_topic():
 
 # add thesis
 @app.route('/add_thesis', methods=['POST'])
-def pythosis():
+def add_thesis():
     '''
     Add a thesis to the database.
     if thesis and its related data are valid, add the thesis to the theses table, related data to the related tables.
@@ -233,8 +233,8 @@ def search2():
     # get topic names
     cur.execute("SELECT topic_id ,topic_name FROM subjecttopics")    
     topics = cur.fetchall()
-
     return render_template('search.html', uni_list=universities, ins_list=institutes, person_list=persons, topic_list=topics)
+    
 
 # get data from form, generate a query and return the result
 @app.route('/search_thesis', methods=['POST'])
@@ -257,15 +257,12 @@ def search_thesis():
 
     
 
-
-
-# get thesis details
 @app.route('/get_thesis/<string:id>', methods=['GET'])
 def get_thesis(id):
     try:
         cur.execute('''SELECT 
         Theses.thesis_no,
-        Persons.title|| ' ' || Persons.name  AS author_name,
+        Persons.title || ' ' || Persons.name AS author_name,
         SupervisorPerson.NAME AS supervisor_name,
         CoSupervisorPerson.NAME AS cosupervisor_name,
         Theses.title,
@@ -296,13 +293,11 @@ def get_thesis(id):
         WHERE 
             Theses.thesis_no = %s;''', (id,))
         thesis_details = cur.fetchall()
-        if thesis_details == []:
+        if not thesis_details:
             return render_template('result.html', response="Thesis not found.", error=True)
-    except psycopg2.errors.RaiseException as e:
-        return render_template('result.html', response=(e), error=True)
-    thesis_details_dict= dict(zip([desc[0] for desc in cur.description], thesis_details[0]))
-    
-    try:
+        
+        thesis_details_dict = dict(zip([desc[0] for desc in cur.description], thesis_details[0]))
+
         cur.execute('''SELECT 
                 Keywords.keyword
             FROM 
@@ -310,11 +305,9 @@ def get_thesis(id):
             LEFT JOIN 
                 Keywords ON ThesisKeywords.keyword_id = Keywords.keyword_id
             WHERE 
-                ThesisKeywords.thesis_no = %s;''',  id)
-    except psycopg2.errors.RaiseException as e:
-        return render_template('result.html', response=(e), error=True)
-    keywords = [item[0] for item in cur.fetchall()]
-    try:
+                ThesisKeywords.thesis_no = %s;''', (id,))
+        keywords = [item[0] for item in cur.fetchall()]
+
         cur.execute('''SELECT 
                 SubjectTopics.topic_name
             FROM 
@@ -322,14 +315,14 @@ def get_thesis(id):
             LEFT JOIN 
                 SubjectTopics ON ThesisSubjectTopics.topic_id = SubjectTopics.topic_id
             WHERE 
-                ThesisSubjectTopics.thesis_no = %s;''', id)
-    except psycopg2.errors.RaiseException as e:
-        return render_template('result.html', response=(e), error=True)
-    
-    topics = [item[0] for item in cur.fetchall()]
-    result = {'thesis': thesis_details_dict,'keywords':keywords, 'topics':topics}
-    
-    return render_template('thesis.html', result=result)
+                ThesisSubjectTopics.thesis_no = %s;''', (id,))
+        topics = [item[0] for item in cur.fetchall()]
+
+        result = {'thesis': thesis_details_dict, 'keywords': keywords, 'topics': topics}
+        return render_template('thesis.html', result=result)
+
+    except Exception as e:
+        return render_template('result.html', response=str(e), error=True)
 
     
 
