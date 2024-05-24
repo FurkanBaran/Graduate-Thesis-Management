@@ -43,7 +43,9 @@ To set up the GTS, follow these steps:
 5. Access the application in your web browser at `http://localhost:5000`.
 
 `psql -U username -d database_name -f pg-database.sql`
+
 Usage
+
 Don't forget to update database credentials. Run the application through your preferred web server or localhost setup. Access the system via the web interface to manage thesis records.
 ## Screenshots
 ![image](https://github.com/FurkanBaran/Graduate-Thesis-Management/assets/21145014/f2fc345d-05e2-4fb7-85c2-6ad9cbdb65c0)
