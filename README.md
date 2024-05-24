@@ -42,7 +42,7 @@ To set up the GTS, follow these steps:
 4. Run the application by executing `python app.py`.
 5. Access the application in your web browser at `http://localhost:5000`.
 
-psql -U username -d database_name -f pg-database.sql
+`psql -U username -d database_name -f pg-database.sql`
 Usage
 Don't forget to update database credentials. Run the application through your preferred web server or localhost setup. Access the system via the web interface to manage thesis records.
 ## Screenshots
